@@ -1,1 +1,54 @@
-# WareeKTP.github.io
+# Portfolio Website
+
+A modern, responsive portfolio website showcasing my projects, skills, and professional experience. Built with clean design principles and optimized for performance across all devices.
+
+## 🌟 Features
+
+- **Responsive Design**: Fully responsive layout that works seamlessly on desktop, tablet, and mobile devices
+- **Modern UI/UX**: Clean, professional design with smooth animations and transitions
+- **Project Showcase**: Interactive gallery displaying my best work with detailed descriptions
+- **Skills Section**: Visual representation of technical skills and proficiencies
+
+
+## 🚀 Live Demo
+
+[View Live Site](https://wareektp.github.io/)
+
+## 🛠️ Built With
+
+- **Frontend**: HTML5, CSS3, JavaScript (ES6+)
+- **Styling**: CSS Grid, Flexbox, CSS Custom Properties
+- **Icons**: [Icon library used - e.g., Lucide, Font Awesome]
+
+## 📁 Project Structure
+
+```
+portfolio-website/
+├── index.html
+├── styles.css
+├── script.js
+├── img/
+│   ├── formalImage.jpg
+│   └── ProfileImage.jpg
+├── docs/
+│   └── CV.pdf/
+└── README.md
+```
+
+## 🤝 Contributing
+
+While this is a personal portfolio, suggestions and improvements are welcome!
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 📞 Contact
+
+**Kiattuphan Wareerak** - [waree.kiattiphan@gmail.com](mailto:your.email@example.com)
+
+Project Link: [https://github.com/WareeKTP/WareeKTP.github.io](https://github.com/WareeKTP/WareeKTP.github.io)
+
+---
+
+⭐ **If you found this project helpful, please give it a star!** ⭐
