@@ -189,3 +189,14 @@ function copyEmailToClipboard() {
         console.error('Failed to copy: ', err);
     });
 }
+
+function copyPhoneToClipboard() {
+    const text = "064-197-2727";
+    navigator.clipboard.writeText(text).then(function() {
+        console.log('Text copied successfully!');
+        // Optional: show alert or custom message
+        alert('Copied: ' + text);
+    }).catch(function(err) {
+        console.error('Failed to copy: ', err);
+    });
+}
