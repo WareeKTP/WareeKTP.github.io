@@ -23,7 +23,7 @@ A modern, responsive portfolio website showcasing my projects, skills, and profe
 ## 📁 Project Structure
 
 ```
-portfolio-website/
+WareeKTP.github.io/
 ├── index.html
 ├── styles.css
 ├── script.js
