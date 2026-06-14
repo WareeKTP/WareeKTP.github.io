@@ -3,83 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kiattiphan Wareerak Website</title>
+    <title>Kiattiphan Wareerak — Full Stack Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <!-- FIX: fade-in fallback if JS is disabled -->
+    <noscript><style>.fade-in { opacity: 1 !important; transform: none !important; }</style></noscript>
 </head>
 <body>
+
     <!-- Navigation -->
-    <nav>
-        <div class="container" id="navbar">
-            <div class="nav-container">
-                <a href="#home" class="logo">Kiattiphan Wareerak</a>
-                <ul class="nav-menu">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div>
+    <nav id="navbar">
+        <div class="nav-inner">
+            <a href="#home" class="logo">KW simple Portfolio</a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button type="button" class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
+        <div class="hero-bg"></div>
         <div class="container">
             <div class="hero-content">
-                <img src="./img/profileImage.jpg" alt="Your Name" class="profile-image">
-                <h1>👋Welcome to My Portfolio👋</h1>
-                <h2 class="jobPosition">Full Stack Developer</h2>
-                <p>
-                    Hello, I'm Kiattiphan Wareerak, a recent graduate with a Bachelor's degree in Computer Engineering from Khon Kaen University and approximately one year of freelance work experience. I specialize in full-stack web development and have a passion for working on diverse projects that fuel my creativity and challenge my abilities. I bring fresh perspectives, enthusiasm for learning, and dedication to writing clean, efficient code.
+                <img src="./img/profileImage.jpg" alt="Kiattiphan Wareerak" class="profile-image">
+                <div class="hero-badge">Available for opportunities</div>
+                <!-- FIX: wrap each name in a span so the typing effect preserves the line break -->
+                <h1 class="hero-title">
+                    <span class="hero-line-1">Kiattiphan Wareerak</span>
+                </h1>
+                <h2 class="hero-sub">Full Stack Developer</h2>
+                <p class="hero-desc">
+                    Hi, I'm Kiat — a Full Stack Developer who builds web apps, IoT systems, and everything in between. I've shipped projects ranging from inventory management to hotel booking systems, and my time as a Teaching Assistant sharpened how I communicate complex ideas.
+                    <br><br>
+                    Cybersecurity-certified (ITS & DEPA), TOEIC 835, and always pushing to learn more. I'm actively seeking roles in Full Stack Development, DevOps, and Systems Engineering — and looking for a team where I can solve real problems and keep growing.
                 </p>
-                <a href="#projects" class="cta-button">View My Work</a>
-                <a href="./docs/Kiattiphan_Wareerak_CV.pdf" class="cta-button" download="Kiattiphan_Wareerak_CV.pdf" target="_blank">Download CV</a>
+                <div class="hero-actions">
+                    <a href="#projects" class="btn btn-primary">View my work</a>
+                    <a href="https://drive.google.com/drive/folders/1oNgBpxjuyG8xXm79LxAzpit_bOsHQ4FY?usp=drive_link" class="btn btn-outline">View Certifications</a>
+                    <a href="./docs/Kiattiphan_Wareerak_CV.pdf" class="btn btn-outline" download="Kiattiphan_Wareerak_CV.pdf" target="_blank">Download CV</a>
+                </div>
+                </div>
             </div>
+        </div>
+        <div class="hero-scroll-hint" aria-hidden="true">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
         </div>
     </section>
 
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
-            <h2 class="section-title fade-in">About Me</h2>
-            <div class="about-content fade-in">
-                <div class="personal-info">
-                    <p>Name: Kiattiphan Wareerak</p>
-                    <p>Nickname: Kiat</p>
-                    <p>Date of Birth: December 23, 2001</p>
-                    <p>Sex: Male</p>
-                    <p>Nationality: Thai</p>
-                    <p>Education: Bachelor's Degree in Computer Engineering</p>
-                    <p>Languages: Thai - Native, English - Proficient (TOEIC 835)</p>
+            <div class="section-label">About me</div>
+            <h2 class="section-title fade-in">The person behind the code</h2>
+
+            <div class="about-grid fade-in">
+                <div class="about-photo">
+                    <img src="./img/formalImage.jpg" alt="Kiattiphan Wareerak formal photo">
                 </div>
-                <div id="formalImg">
-                    <img src="./img/formalImage.jpg" alt="Formal Image" />
+                <div class="about-info">
+                    <div class="info-card">
+                        <div class="info-row"><span class="info-label">Name</span><span>Kiattiphan Wareerak (Kiat)</span></div>
+                        <div class="info-row"><span class="info-label">Born</span><span>December 23, 2001</span></div>
+                        <div class="info-row"><span class="info-label">Nationality</span><span>Thai</span></div>
+                        <div class="info-row"><span class="info-label">Degree</span><span>Bachelor's Degree in Computer Engineering</span></div>
+                        <div class="info-row"><span class="info-label">Languages</span><span>Thai — Native · English — Proficient (TOEIC 835)</span></div>
+                        <div class="info-row"><span class="info-label">Certification</span><span>Cybersecurity — ITS &amp; DEPA</span></div>
+                    </div>
+
+                    <div class="skills-section">
+                        <p class="skills-heading">Tech stack</p>
+                        <div class="skills">
+                            <span class="skill-tag">HTML / CSS</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">Golang</span>
+                            <span class="skill-tag">Java</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">PostgreSQL</span>
+                            <span class="skill-tag">MySQL</span>
+                            <span class="skill-tag">Docker</span>
+                            <span class="skill-tag">Microservices</span>
+                            <span class="skill-tag">Machine Learning</span>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="skills">
-                <span class="skill-tag">HTML/CSS</span>
-                <span class="skill-tag">JavaScript</span>
-                <span class="skill-tag">React</span>
-                <span class="skill-tag">Java</span>
-                <span class="skill-tag">Python</span>
-                <span class="skill-tag">Golang</span>
-                <span class="skill-tag">Node.js</span>
-                <span class="skill-tag">PostgreSQL</span>
-                <span class="skill-tag">MySQL</span>
-                <span class="skill-tag">Docker</span>
-                <span class="skill-tag">Machine Learning</span>
-                <span class="skill-tag">Microservices</span>
             </div>
         </div>
     </section>
 
     <!-- Projects Section -->
-    <section id="projects">
+    <section id="projects" class="projects">
         <div class="container">
-            <h2 class="section-title fade-in">Featured Projects</h2>
+            <div class="section-label">Work</div>
+            <h2 class="section-title fade-in">Featured projects</h2>
             <div class="projects-grid">
+
                 <div class="project-card fade-in">
+                    <div class="project-number">01</div>
                     <h3 class="project-title">Oil Price Web Application</h3>
+                    <p class="project-desc">
+                        Real-time oil price monitoring dashboard with multi-currency conversion, automated data updates, and interactive market trend visualizations.
+                    </p>
                     <div class="project-tech">
                         <span class="tech-tag">HTML/CSS</span>
                         <span class="tech-tag">JavaScript</span>
@@ -88,47 +125,48 @@
                         <span class="tech-tag">Docker</span>
                         <span class="tech-tag">Microservices</span>
                     </div>
-                    <div class="project-description">
-                        A comprehensive web-based dashboard for real-time oil price monitoring and market trend analysis. Features multi-currency conversion, automated data updates, and interactive visualizations to help users make informed financial decisions.
-                    </div>
                 </div>
 
                 <div class="project-card fade-in">
-                    <h3 class="project-title">BoothBooth Web Application</h3>
+                    <div class="project-number">02</div>
+                    <h3 class="project-title">BoothBooth</h3>
+                    <p class="project-desc">
+                        Inventory management system for exhibition booth operations — real-time stock control, automated profit calculation, and revenue tracking dashboards.
+                    </p>
                     <div class="project-tech">
                         <span class="tech-tag">HTML/CSS</span>
                         <span class="tech-tag">JavaScript</span>
                         <span class="tech-tag">Golang</span>
                         <span class="tech-tag">PostgreSQL</span>
                     </div>
-                    <div class="project-description">
-                        A comprehensive inventory management system for exhibition booth operations with real-time stock control. Includes automated profit calculation, revenue tracking, and interactive dashboards for business insights and financial oversight.
-                    </div>
                 </div>
 
                 <div class="project-card fade-in">
-                    <h3 class="project-title">LoRa-Communage Web Application</h3>
+                    <div class="project-number">03</div>
+                    <h3 class="project-title">LoRa-Communage</h3>
+                    <p class="project-desc">
+                        Redesigned web interface for LoRaWAN network communication management — faster, cleaner, and more intuitive than the original open-source LNS.
+                    </p>
                     <div class="project-tech">
                         <span class="tech-tag">HTML/CSS</span>
                         <span class="tech-tag">JavaScript</span>
                         <span class="tech-tag">Node.js</span>
                         <span class="tech-tag">PostgreSQL</span>
                     </div>
-                    <div class="project-description">
-                        Created a new website that delivers a cleaner, faster and more intuitive experience for LoRaWAN network communication management by enhancing an existing open-source LNS.
-                    </div>
                 </div>
 
                 <div class="project-card fade-in">
-                    <h3 class="project-title">CNN Model For Malaria Cell Classification</h3>
+                    <div class="project-number">04</div>
+                    <h3 class="project-title">Malaria Cell Classifier</h3>
+                    <p class="project-desc">
+                        CNN model for automated malaria detection from microscopic blood cell images. Achieved 70%+ accuracy classifying infected vs healthy red blood cells.
+                    </p>
                     <div class="project-tech">
                         <span class="tech-tag">Python</span>
                         <span class="tech-tag">Machine Learning</span>
                     </div>
-                    <div class="project-description">
-                        A Convolutional Neural Network model for automated malaria detection using microscopic blood cell images. Achieved over 70% accuracy in classifying infected and healthy red blood cells, demonstrating practical application of deep learning in medical diagnostics.
-                    </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -136,28 +174,47 @@
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2 class="section-title fade-in">Get In Touch</h2>
-            <div class="contact-content fade-in" id="contactSection">
-                <p>Actively seeking new opportunities to contribute skills and grow within a dynamic and forward-thinking organization.
-                <br>Passionate about collaborating on impactful projects and delivering meaningful results.</p>
-                <div class="contact-links">
-                    <a href="" class="contact-link" onclick="copyEmailToClipboard()">waree.kiattiphan@gmail.com</a>
-                    <!-- <a href="https://linkedin.com/in/waree-kiattiphan" class="contact-link" target="_blank">LinkedIn</a> -->
-                    <a href="" class="contact-link" onclick="copyPhoneToClipboard()">064-197-2727</a>
-                    <a href="https://github.com/wareeKTP" class="contact-link" target="_blank">GitHub</a>
-                    <a href="https://www.facebook.com/KiatWaree" class="contact-link" target="_blank">Facebook</a>
-                </div>
-                </div>
+            <div class="section-label light">Contact</div>
+            <h2 class="section-title light fade-in">Let's work together</h2>
+            <p class="contact-desc fade-in">
+                Actively seeking new opportunities. I'm excited to contribute to impactful projects and keep growing with a great team.
+            </p>
+            <div class="contact-links fade-in">
+                <!-- FIX: added type="button" to all buttons -->
+                <button type="button" class="contact-link" onclick="copyToClipboard('waree.kiattiphan@gmail.com', 'Email')">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+                    waree.kiattiphan@gmail.com
+                </button>
+                <button type="button" class="contact-link" onclick="copyToClipboard('064-197-2727', 'Phone number')">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.5 15.5 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.6 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.6 3.6a1 1 0 0 1-.25 1L6.6 10.8Z"/></svg>
+                    064-197-2727
+                </button>
+                <a href="https://www.linkedin.com/in/kiattiphan-wareerak-892b07360" class="contact-link" target="_blank" rel="noopener noreferrer">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="4"/><path d="M7 10v7M7 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"/></svg>
+                    LinkedIn
+                </a>
+                <!-- <a href="https://github.com/wareeKTP" class="contact-link" target="_blank" rel="noopener noreferrer">
+                    <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.58 2 12.19c0 4.5 2.87 8.32 6.84 9.67.5.09.68-.22.68-.49v-1.71c-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.49-1.11-1.49-.91-.64.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.57 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05A9.38 9.38 0 0 1 12 6.84c.85 0 1.7.12 2.5.34 1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.06.36.32.68.94.68 1.9v2.81c0 .27.18.59.69.49A10.19 10.19 0 0 0 22 12.19C22 6.58 17.52 2 12 2Z"/></svg>
+                    GitHub
+                </a> -->
+                <a href="https://www.facebook.com/profile.php?id=61584368086116" class="contact-link" target="_blank" rel="noopener noreferrer">
+                    <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                    Facebook
+                </a>
             </div>
         </div>
     </section>
 
+    <!-- Toast notification -->
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2025 Kiattiphan Wareerak. Available for new opportunities 😊.</p>
+            <p>© 2026 Kiattiphan Wareerak · Built with care · Available for new opportunities</p>
         </div>
     </footer>
-</body>
+
     <script src="script.js"></script>
+</body>
 </html>
