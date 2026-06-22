@@ -42,9 +42,9 @@ While this is a personal portfolio, suggestions and improvements are welcome!
 ## 📞 Contact
 
 **Kiattiphan Wareerak**
-Email: [waree.kiattiphan@gmail.com](mailto:your.email@example.com)
-Tel: +66 64-197-2727
-Linkedin: www.linkedin.com/in/kiattiphan-wareerak-892b07360
+- Email: [waree.kiattiphan@gmail.com](mailto:your.email@example.com)
+- Tel: +66 64-197-2727
+- Linkedin: www.linkedin.com/in/kiattiphan-wareerak-892b07360
 
 Project Link: [https://github.com/WareeKTP/WareeKTP.github.io](https://github.com/WareeKTP/WareeKTP.github.io)
 
