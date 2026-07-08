@@ -23,6 +23,17 @@
 
     --hero-from:  #1a1d2e;
     --hero-to:    #2d2356;
+    --glow-violet: 120, 80, 220;
+    --status-online: #4ade80;
+
+    /* Solid + wash forms of the existing "Ambient Violet Glow" (already
+       documented as the hero/contact bookend blob, same 120,80,220 value).
+       Reused — not invented — as a second structural accent scoped to the
+       project modal only, so its "Architecture" section can read as
+       distinct from "Objective" without a real second hue entering the
+       system. See DESIGN.md's One Signal Rule. */
+    --glow-violet-solid: #7850dc;
+    --glow-violet-bg: rgba(120, 80, 220, 0.1);
 
     /* Type */
     --font-display: 'Sora', sans-serif;
@@ -71,6 +82,10 @@ img {
     max-width: 100%;
 }
 
+button {
+    font-family: inherit;
+}
+
 /* ============================================================
    FOCUS — keyboard accessibility
    ============================================================ */
@@ -106,7 +121,7 @@ img {
 }
 
 .nav-inner {
-    max-width: 1100px;
+    max-width: 1400px;
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -163,27 +178,32 @@ img {
     position: absolute;
     bottom: -4px;
     left: 0;
-    width: 0;
+    width: 100%;
     height: 2px;
     border-radius: 2px;
     background: currentColor;
-    transition: width var(--dur) var(--ease);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--dur) var(--ease);
 }
 
 .nav-menu a:hover::after,
 .nav-menu a.active::after {
-    width: 100%;
+    transform: scaleX(1);
 }
 
 /* Hamburger */
 .hamburger {
     display: none;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     gap: 5px;
+    min-width: 44px;
+    min-height: 44px;
     background: none;
     border: none;
     cursor: pointer;
-    padding: 4px;
 }
 
 .hamburger span {
@@ -220,7 +240,7 @@ img {
     inset: 0;
     background:
         radial-gradient(ellipse 60% 50% at 80% 20%, rgba(79, 110, 247, 0.25) 0%, transparent 60%),
-        radial-gradient(ellipse 40% 40% at 10% 80%, rgba(120, 80, 220, 0.18) 0%, transparent 60%);
+        radial-gradient(ellipse 40% 40% at 10% 80%, rgba(var(--glow-violet), 0.18) 0%, transparent 60%);
     pointer-events: none;
 }
 
@@ -271,7 +291,7 @@ img {
     content: '';
     width: 7px;
     height: 7px;
-    background: #4ade80;
+    background: var(--status-online);
     border-radius: 50%;
     box-shadow: 0 0 0 2px rgba(74, 222, 128, 0.3);
 }
@@ -289,7 +309,7 @@ img {
 .hero-sub {
     font-size: 1.5rem;
     font-weight: 500;
-    color: rgba(255, 255, 255, 0.952);
+    color: rgba(255, 255, 255, 0.92);
     letter-spacing: 0.12em;
     text-transform: uppercase;
     margin-bottom: 1.5rem;
@@ -298,8 +318,12 @@ img {
 .hero-desc {
     font-size: 1.05rem;
     color: rgba(255, 255, 255, 0.72);
-    max-width: 800px;
+    max-width: 68ch;
     line-height: 1.75;
+    margin-bottom: 1.25rem;
+}
+
+.hero-desc:last-of-type {
     margin-bottom: 2.25rem;
 }
 
@@ -382,9 +406,10 @@ section {
     padding: var(--section-gap) 0;
 }
 
-/* FIX: prevent fixed navbar from covering section headings on scroll */
+/* FIX: prevent fixed navbar from covering section headings on scroll —
+   84px covers the taller mobile navbar (44px hamburger + padding) */
 section[id] {
-    scroll-margin-top: 70px;
+    scroll-margin-top: 84px;
 }
 
 .section-label {
@@ -414,14 +439,16 @@ section[id] {
     color: #fff;
 }
 
-/* Fade-in animation */
-.fade-in {
+/* Fade-in animation — visible by default; JS arms the hidden state right
+   before observing, so content never depends on JS/IntersectionObserver
+   running to become visible. */
+.fade-in.fade-in-armed {
     opacity: 0;
     transform: translateY(24px);
     transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
 }
 
-.fade-in.visible {
+.fade-in.fade-in-armed.visible {
     opacity: 1;
     transform: translateY(0);
 }
@@ -521,7 +548,7 @@ section[id] {
     background: var(--accent);
     color: #fff;
     border-color: var(--accent);
-    transform: translateY(-2px);
+    transform: translateY(-2px) rotate(2deg);
 }
 
 /* ============================================================
@@ -538,35 +565,20 @@ section[id] {
 }
 
 .project-card {
+    display: flex;
+    flex-direction: column;
+    position: relative;
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: var(--card-radius);
     padding: 2rem;
-    transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease), transform var(--dur) var(--ease);
-    position: relative;
+    transition: box-shadow var(--dur) var(--ease), transform var(--dur) var(--ease);
     will-change: transform;
 }
 
 .project-card:hover {
-    border-color: var(--accent);
-    box-shadow: 0 0 0 1px var(--accent), 0 16px 48px rgba(79, 110, 247, 0.1);
+    box-shadow: 0 16px 48px rgba(79, 110, 247, 0.1);
     transform: translateY(-4px);
-}
-
-/* FIX: arrow hint appears on hover so cards feel clickable */
-.project-card::after {
-    content: '↗';
-    position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
-    font-size: 1rem;
-    color: var(--accent);
-    opacity: 0;
-    transition: opacity var(--dur) var(--ease);
-}
-
-.project-card:hover::after {
-    opacity: 1;
 }
 
 .project-number {
@@ -598,6 +610,29 @@ section[id] {
     display: flex;
     flex-wrap: wrap;
     gap: 0.4rem;
+    margin-top: auto;
+}
+
+.project-details-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    align-self: flex-start;
+    margin-top: 1.1rem;
+    padding: 0;
+    background: none;
+    border: none;
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--accent);
+    cursor: pointer;
+    transition: gap var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+
+.project-details-btn:hover {
+    color: var(--accent-dim);
+    gap: 0.5rem;
 }
 
 .tech-tag {
@@ -625,7 +660,7 @@ section[id] {
     inset: 0;
     background:
         radial-gradient(ellipse 50% 60% at 90% 50%, rgba(79, 110, 247, 0.2) 0%, transparent 60%),
-        radial-gradient(ellipse 40% 40% at 0% 30%, rgba(120, 80, 220, 0.15) 0%, transparent 60%);
+        radial-gradient(ellipse 40% 40% at 0% 30%, rgba(var(--glow-violet), 0.15) 0%, transparent 60%);
     pointer-events: none;
 }
 
@@ -706,7 +741,7 @@ section[id] {
    ============================================================ */
 footer {
     background: var(--ink);
-    color: rgba(255, 255, 255, 0.4);
+    color: rgba(255, 255, 255, 0.55);
     text-align: center;
     padding: 2rem 0;
     font-size: 0.82rem;
@@ -719,6 +754,15 @@ footer {
 @media (max-width: 768px) {
     :root {
         --section-gap: 5rem;
+    }
+
+    .container {
+        padding: 0 1.5rem;
+    }
+
+    .btn,
+    .contact-link {
+        min-height: 44px;
     }
 
     /* Mobile nav */
@@ -778,6 +822,18 @@ footer {
         grid-template-columns: 1fr;
     }
 
+    .project-modal-gallery img {
+        height: 150px;
+    }
+
+    .project-modal-header {
+        padding: 1.5rem 3.75rem 1.25rem 1.5rem;
+    }
+
+    .project-modal-body {
+        padding: 1.5rem 1.5rem 1.75rem;
+    }
+
     /* Hero sizing */
     .hero-title {
         font-size: 2.4rem;
@@ -823,6 +879,361 @@ footer {
 }
 
 /* ============================================================
+   MODAL — shared by the resume picker and project details
+   ============================================================ */
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+
+.modal-backdrop.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-card {
+    background: var(--surface);
+    border-radius: var(--card-radius);
+    padding: 2rem;
+    width: min(400px, calc(100vw - 3rem));
+    position: relative;
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.3);
+    transform: translateY(16px);
+    transition: transform 0.2s ease;
+}
+
+.modal-backdrop.open .modal-card {
+    transform: translateY(0);
+}
+
+.modal-title {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 0.3rem;
+}
+
+.modal-desc {
+    font-size: 0.88rem;
+    color: var(--ink-muted);
+    margin-bottom: 1.25rem;
+}
+
+.modal-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+}
+
+.modal-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.9rem 1.1rem;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    color: var(--ink);
+    font-size: 0.92rem;
+    font-weight: 500;
+    transition: all var(--dur) var(--ease);
+}
+
+.modal-option:hover {
+    border-color: var(--accent);
+    background: var(--accent-bg);
+    color: var(--accent-dim);
+}
+
+.modal-close {
+    position: absolute;
+    top: 0.9rem;
+    right: 0.9rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--ink-muted);
+    font-size: 1.4rem;
+    line-height: 1;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    transition: color var(--dur) var(--ease), background var(--dur) var(--ease);
+}
+
+.modal-close:hover {
+    color: var(--ink);
+    background: var(--surface-2);
+}
+
+/* ============================================================
+   PROJECT DETAILS MODAL
+   ============================================================ */
+.project-modal-card {
+    width: min(640px, calc(100vw - 3rem));
+    max-height: calc(100vh - 4rem);
+    padding: 0;
+    overflow-y: auto;
+    /* Tinted with the brand pair (accent + the existing violet glow)
+       instead of neutral black — per DESIGN.md's shadow rule, depth and
+       brand color are the same gesture. This is the one resting shadow
+       this modal carries, same exception class as the About-photo shadow. */
+    box-shadow: 0 28px 72px rgba(79, 110, 247, 0.22), 0 14px 36px rgba(var(--glow-violet), 0.18);
+}
+
+/* Reuses the hero/contact "bookend" gradient (Midnight -> Deep Violet) as a
+   modal header band — the same dark-gradient moment the system already
+   uses twice, brought in here rather than invented fresh for this popup. */
+.project-modal-header {
+    position: relative;
+    overflow: hidden;
+    padding: 1.75rem 4.25rem 1.5rem 2rem;
+    background: linear-gradient(145deg, var(--hero-from) 0%, var(--hero-to) 100%);
+    border-radius: var(--card-radius) var(--card-radius) 0 0;
+}
+
+.project-modal-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    /* Same ambient-glow technique as the hero/contact sections, opacity
+       kept within the 15-22% range DESIGN.md already specifies for it. */
+    background:
+        radial-gradient(ellipse 70% 100% at 100% 0%, rgba(var(--glow-violet), 0.22) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 90% at 0% 100%, rgba(79, 110, 247, 0.2) 0%, transparent 65%);
+    pointer-events: none;
+}
+
+.project-modal-header .modal-title {
+    position: relative;
+    color: #fff;
+    margin-bottom: 0;
+    padding-right: 0;
+}
+
+.project-modal-close {
+    top: 0.9rem;
+    right: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 999px;
+    transition: color var(--dur) var(--ease), background var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+
+.project-modal-close:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.22);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.project-modal-body {
+    padding: 1.75rem 2rem 2rem;
+}
+
+/* A soft accent-tinted frame around the gallery strip so the screenshots
+   (or the architecture diagram) sit in a colored "stage" rather than
+   floating directly on the plain white card. */
+.project-modal-gallery-frame {
+    padding: 0.75rem;
+    margin-bottom: 1.5rem;
+    border-radius: var(--radius-sm);
+    background: linear-gradient(135deg, var(--accent-bg) 0%, var(--surface-2) 100%);
+    border: 1px solid var(--border);
+}
+
+.project-modal-gallery {
+    display: flex;
+    gap: 0.75rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+}
+
+.project-modal-gallery img {
+    scroll-snap-align: start;
+    height: 200px;
+    width: auto;
+    max-width: none;
+    flex-shrink: 0;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    object-fit: cover;
+    cursor: zoom-in;
+    background: var(--surface);
+    transition: transform var(--dur) var(--ease), border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+
+.project-modal-gallery img:hover {
+    transform: scale(1.03);
+    border-color: var(--accent);
+    box-shadow: 0 12px 28px rgba(79, 110, 247, 0.25);
+}
+
+.project-modal-gallery svg {
+    width: 100%;
+}
+
+.project-modal-section {
+    margin-bottom: 1.25rem;
+}
+
+.project-modal-section:last-child {
+    margin-bottom: 0;
+}
+
+/* Divider only between Objective and Architecture — the gallery frame above
+   Objective already reads as its own break, so it doesn't need one too. */
+.project-modal-section--architecture {
+    padding-top: 1.1rem;
+    border-top: 1px solid var(--border);
+}
+
+.project-modal-section h4 {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.project-modal-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 999px;
+    flex-shrink: 0;
+}
+
+.project-modal-section--objective h4 {
+    color: var(--accent-dim);
+}
+
+.project-modal-section--objective .project-modal-icon {
+    color: var(--accent);
+    background: var(--accent-bg);
+}
+
+/* "Architecture" keys off the violet half of the header gradient above it
+   (see --glow-violet-solid in :root) instead of repeating the indigo used
+   for "Objective" — a deliberate second moment, not a second palette. */
+.project-modal-section--architecture h4 {
+    color: var(--glow-violet-solid);
+}
+
+.project-modal-section--architecture .project-modal-icon {
+    color: var(--glow-violet-solid);
+    background: var(--glow-violet-bg);
+}
+
+.project-modal-section p {
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    line-height: 1.7;
+}
+
+/* Lightbox — nested inside the project modal so it shares its inert
+   scoping; only needs to inert its one sibling (.project-modal-card)
+   rather than the whole page. */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 310;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.85);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+
+.lightbox.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.lightbox-img {
+    max-width: min(90vw, 1100px);
+    max-height: 88vh;
+    object-fit: contain;
+    border-radius: var(--radius-sm);
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.5rem;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 999px;
+    color: #fff;
+    font-size: 1.1rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: background var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+
+.lightbox-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* ============================================================
+   PROJECT LINK
+   ============================================================ */
+.project-link {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-decoration: none;
+    background: var(--accent-bg);
+    border: 1.5px solid rgba(79, 110, 247, 0.3);
+    padding: 0.4rem 0.9rem;
+    border-radius: 999px;
+    transition: all var(--dur) var(--ease);
+}
+
+.project-link:hover {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+    gap: 0.6rem;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(79, 110, 247, 0.35);
+}
+
+/* ============================================================
    REDUCED MOTION
    ============================================================ */
 @media (prefers-reduced-motion: reduce) {
@@ -831,7 +1242,7 @@ footer {
         transition-duration: 0.01ms !important;
     }
 
-    .fade-in {
+    .fade-in.fade-in-armed {
         opacity: 1;
         transform: none;
     }

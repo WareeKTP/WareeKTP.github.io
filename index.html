@@ -4,19 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kiattiphan Wareerak — Full Stack Developer</title>
+    <meta name="description" content="Kiattiphan (Kiat) Wareerak — Full Stack Developer building web apps, IoT systems, and machine learning projects. Seeking roles in Full Stack Development, DevOps, and Systems Engineering.">
+    <meta name="theme-color" content="#1a1d2e">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://wareektp.github.io/">
+    <meta property="og:title" content="Kiattiphan Wareerak — Full Stack Developer">
+    <meta property="og:description" content="Full Stack Developer building web apps, IoT systems, and machine learning projects. Seeking roles in Full Stack Development, DevOps, and Systems Engineering.">
+    <meta property="og:image" content="https://wareektp.github.io/img/profileImage.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Kiattiphan Wareerak — Full Stack Developer">
+    <meta name="twitter:description" content="Full Stack Developer building web apps, IoT systems, and machine learning projects.">
+    <meta name="twitter:image" content="https://wareektp.github.io/img/profileImage.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <!-- FIX: fade-in fallback if JS is disabled -->
-    <noscript><style>.fade-in { opacity: 1 !important; transform: none !important; }</style></noscript>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%234f6ef7'/%3E%3Ctext x='50' y='69' font-family='Arial,sans-serif' font-weight='700' font-size='56' fill='white' text-anchor='middle'%3EK%3C/text%3E%3C/svg%3E">
 </head>
 <body>
 
     <!-- Navigation -->
     <nav id="navbar">
         <div class="nav-inner">
-            <a href="#home" class="logo">KW simple Portfolio</a>
+            <a href="#home" class="logo">Kiat Wareerak</a>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -38,21 +48,20 @@
             <div class="hero-content">
                 <img src="./img/profileImage.jpg" alt="Kiattiphan Wareerak" class="profile-image">
                 <div class="hero-badge">Available for opportunities</div>
-                <!-- FIX: wrap each name in a span so the typing effect preserves the line break -->
                 <h1 class="hero-title">
                     <span class="hero-line-1">Kiattiphan Wareerak</span>
                 </h1>
                 <h2 class="hero-sub">Full Stack Developer</h2>
                 <p class="hero-desc">
-                    Hi, I'm Kiat — a Full Stack Developer who builds web apps, IoT systems, and everything in between. I've shipped projects ranging from inventory management to hotel booking systems, and my time as a Teaching Assistant sharpened how I communicate complex ideas.
-                    <br><br>
-                    Cybersecurity-certified (ITS & DEPA), TOEIC 835, and always pushing to learn more. I'm actively seeking roles in Full Stack Development, DevOps, and Systems Engineering — and looking for a team where I can solve real problems and keep growing.
+                    Hi, I'm Kiat, a Full Stack Developer who builds web apps, IoT systems, and everything in between. I've shipped projects ranging from inventory management to hotel booking systems, and my time as a Teaching Assistant sharpened how I communicate complex ideas.
+                </p>
+                <p class="hero-desc">
+                    Cybersecurity-certified (ITS &amp; DEPA), TOEIC 835, and always pushing to learn more. I'm actively seeking roles in Full Stack Development, DevOps, and Systems Engineering, and looking for a team where I can solve real problems and keep growing.
                 </p>
                 <div class="hero-actions">
                     <a href="#projects" class="btn btn-primary">View my work</a>
-                    <a href="https://drive.google.com/drive/folders/1oNgBpxjuyG8xXm79LxAzpit_bOsHQ4FY?usp=drive_link" class="btn btn-outline">View Certifications</a>
-                    <a href="./docs/Kiattiphan_Wareerak_CV.pdf" class="btn btn-outline" download="Kiattiphan_Wareerak_CV.pdf" target="_blank">Download CV</a>
-                </div>
+                    <a href="https://drive.google.com/drive/folders/1oNgBpxjuyG8xXm79LxAzpit_bOsHQ4FY?usp=drive_link" class="btn btn-outline" target="_blank" rel="noopener noreferrer">View Certifications</a>
+                    <button type="button" class="btn btn-outline" id="resumePickerBtn">Download Resume</button>
                 </div>
             </div>
         </div>
@@ -78,8 +87,8 @@
                         <div class="info-row"><span class="info-label">Born</span><span>December 23, 2001</span></div>
                         <div class="info-row"><span class="info-label">Nationality</span><span>Thai</span></div>
                         <div class="info-row"><span class="info-label">Degree</span><span>Bachelor's Degree in Computer Engineering</span></div>
-                        <div class="info-row"><span class="info-label">Languages</span><span>Thai — Native · English — Proficient (TOEIC 835)</span></div>
-                        <div class="info-row"><span class="info-label">Certification</span><span>Cybersecurity — ITS &amp; DEPA</span></div>
+                        <div class="info-row"><span class="info-label">Languages</span><span>Thai: Native · English: Proficient (TOEIC 835)</span></div>
+                        <div class="info-row"><span class="info-label">Certification</span><span>Cybersecurity: ITS &amp; DEPA</span></div>
                     </div>
 
                     <div class="skills-section">
@@ -112,7 +121,75 @@
             <div class="projects-grid">
 
                 <div class="project-card fade-in">
+                    <a href="https://github.com/WareeKTP/boothbooth" class="project-link" target="_blank" rel="noopener noreferrer">
+                        GitHub
+                        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></svg>
+                    </a>
                     <div class="project-number">01</div>
+                    <h3 class="project-title">BoothBooth</h3>
+                    <p class="project-desc">
+                        Inventory management system for exhibition booth operations: real-time stock control, automated profit calculation, and revenue tracking dashboards.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Fastify</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">Docker</span>
+                    </div>
+                    <button type="button" class="project-details-btn" data-project="boothbooth">
+                        View details
+                        <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>
+                    </button>
+                </div>
+
+                <div class="project-card fade-in">
+                    <a href="https://github.com/WareeKTP/Monie-SkincareHelper" class="project-link" target="_blank" rel="noopener noreferrer">
+                        GitHub
+                        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></svg>
+                    </a>
+                    <div class="project-number">02</div>
+                    <h3 class="project-title">Monie — Skincare Routine Helper</h3>
+                    <p class="project-desc">
+                        Web app for building and tracking personalized skincare routines. Users manage their steps and products with a clean, responsive interface backed by a REST API.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">TypeScript</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">Microservices</span>
+                    </div>
+                    <button type="button" class="project-details-btn" data-project="monie">
+                        View details
+                        <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>
+                    </button>
+                </div>
+
+                <div class="project-card fade-in">
+                    <a href="https://github.com/WareeKTP/HotelBookingSystem" class="project-link" target="_blank" rel="noopener noreferrer">
+                        GitHub
+                        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></svg>
+                    </a>
+                    <div class="project-number">03</div>
+                    <h3 class="project-title">Hotel Booking System</h3>
+                    <p class="project-desc">
+                        Real-time room booking system built to prevent double-booking under concurrent requests. Microservice architecture with JWT auth and a focus on security and scalability.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">TypeScript</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">Microservices</span>
+                        <span class="tech-tag">JWT</span>
+                    </div>
+                    <button type="button" class="project-details-btn" data-project="hotel">
+                        View details
+                        <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>
+                    </button>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-number">04</div>
                     <h3 class="project-title">Oil Price Web Application</h3>
                     <p class="project-desc">
                         Real-time oil price monitoring dashboard with multi-currency conversion, automated data updates, and interactive market trend visualizations.
@@ -128,24 +205,10 @@
                 </div>
 
                 <div class="project-card fade-in">
-                    <div class="project-number">02</div>
-                    <h3 class="project-title">BoothBooth</h3>
-                    <p class="project-desc">
-                        Inventory management system for exhibition booth operations — real-time stock control, automated profit calculation, and revenue tracking dashboards.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">HTML/CSS</span>
-                        <span class="tech-tag">JavaScript</span>
-                        <span class="tech-tag">Golang</span>
-                        <span class="tech-tag">PostgreSQL</span>
-                    </div>
-                </div>
-
-                <div class="project-card fade-in">
-                    <div class="project-number">03</div>
+                    <div class="project-number">05</div>
                     <h3 class="project-title">LoRa-Communage</h3>
                     <p class="project-desc">
-                        Redesigned web interface for LoRaWAN network communication management — faster, cleaner, and more intuitive than the original open-source LNS.
+                        Redesigned web interface for LoRaWAN network communication management: faster, cleaner, and more intuitive than the original open-source LNS.
                     </p>
                     <div class="project-tech">
                         <span class="tech-tag">HTML/CSS</span>
@@ -156,7 +219,7 @@
                 </div>
 
                 <div class="project-card fade-in">
-                    <div class="project-number">04</div>
+                    <div class="project-number">06</div>
                     <h3 class="project-title">Malaria Cell Classifier</h3>
                     <p class="project-desc">
                         CNN model for automated malaria detection from microscopic blood cell images. Achieved 70%+ accuracy classifying infected vs healthy red blood cells.
@@ -193,10 +256,6 @@
                     <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="4"/><path d="M7 10v7M7 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"/></svg>
                     LinkedIn
                 </a>
-                <!-- <a href="https://github.com/wareeKTP" class="contact-link" target="_blank" rel="noopener noreferrer">
-                    <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.58 2 12.19c0 4.5 2.87 8.32 6.84 9.67.5.09.68-.22.68-.49v-1.71c-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.49-1.11-1.49-.91-.64.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.57 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05A9.38 9.38 0 0 1 12 6.84c.85 0 1.7.12 2.5.34 1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.06.36.32.68.94.68 1.9v2.81c0 .27.18.59.69.49A10.19 10.19 0 0 0 22 12.19C22 6.58 17.52 2 12 2Z"/></svg>
-                    GitHub
-                </a> -->
                 <a href="https://www.facebook.com/profile.php?id=61584368086116" class="contact-link" target="_blank" rel="noopener noreferrer">
                     <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
                     Facebook
@@ -214,6 +273,57 @@
             <p>© 2026 Kiattiphan Wareerak · Built with care · Available for new opportunities</p>
         </div>
     </footer>
+
+    <!-- Resume picker modal -->
+    <div class="modal-backdrop" id="resumeModal" role="dialog" aria-modal="true" aria-labelledby="resumeModalTitle" inert>
+        <div class="modal-card">
+            <button type="button" class="modal-close" id="resumeModalClose" aria-label="Close">&#x2715;</button>
+            <h3 id="resumeModalTitle" class="modal-title">Download Resume</h3>
+            <p class="modal-desc">Select the role you're hiring for:</p>
+            <div class="modal-options">
+                <a href="./docs/Kiattiphan%20Wareerak%20Resume%20-%20Full%20Stack%20Developer.pdf"
+                   class="modal-option"
+                   download="Kiattiphan Wareerak Resume - Full Stack Developer.pdf">
+                    Full Stack Developer
+                    <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15V3m0 12-4-4m4 4 4-4M2 17l.621 2.485A2 2 0 0 0 4.561 21h14.878a2 2 0 0 0 1.94-1.515L22 17"/></svg>
+                </a>
+                <a href="./docs/Kiattiphan%20Wareerak%20Resume%20-%20DevOps%20Engineer.pdf"
+                   class="modal-option"
+                   download="Kiattiphan Wareerak Resume - DevOps Engineer.pdf">
+                    DevOps Engineer
+                    <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15V3m0 12-4-4m4 4 4-4M2 17l.621 2.485A2 2 0 0 0 4.561 21h14.878a2 2 0 0 0 1.94-1.515L22 17"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project details modal -->
+    <div class="modal-backdrop" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="projectModalTitle" inert>
+        <div class="modal-card project-modal-card">
+            <div class="project-modal-header">
+                <button type="button" class="modal-close project-modal-close" id="projectModalClose" aria-label="Close">&#x2715;</button>
+                <h3 id="projectModalTitle" class="modal-title"></h3>
+            </div>
+            <div class="project-modal-body">
+                <div class="project-modal-gallery-frame">
+                    <div class="project-modal-gallery" id="projectModalGallery"></div>
+                </div>
+                <div class="project-modal-section project-modal-section--objective">
+                    <h4><span class="project-modal-icon" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="0.6" fill="currentColor"/></svg></span>Objective</h4>
+                    <p id="projectModalObjective"></p>
+                </div>
+                <div class="project-modal-section project-modal-section--architecture">
+                    <h4><span class="project-modal-icon" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="8.5" y="14" width="7" height="7" rx="1.5"/><path d="M7.5 11v3M16.5 11v3M12 18v-4"/></svg></span>Architecture</h4>
+                    <p id="projectModalArchitecture"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview" inert>
+            <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Close image preview">&#x2715;</button>
+            <img class="lightbox-img" id="lightboxImg" src="" alt="">
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
